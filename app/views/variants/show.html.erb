@@ -1,0 +1,17 @@
+<h1>Product</h1>
+<% if @product.nil? %>
+  <h3>Product not found</h3>
+<% else %>
+  <p><%= link_to 'Edit', edit_product_path(@product) %></p>
+  <p>
+  <span>Name: </span><%= @product.name %>
+  </p>
+  <p>
+  <span>Category: </span><%= @product.try(:category).try(:name) %>
+  </p>
+  <p>
+  <span>Description: </span><%= @product.description %>
+  </p>
+  <p>
+<% end %>
+<%= link_to 'Back', :back %>

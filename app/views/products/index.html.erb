@@ -1,0 +1,10 @@
+<h1>Products list</h1>
+<span><%= flash[:notice] %></span>
+<p><%= link_to 'New product', new_product_path %></p>
+<ul>
+  <% @products.each do |product| %>
+    <li id='<%= "product_#{product.id}" %>'>
+      <%= product.name %> | <%= link_to 'Show', product %>
+      </li>
+  <% end %>
+</ul>

@@ -1,0 +1,10 @@
+<h1>Variants list</h1>
+<span><%= flash[:notice] %></span>
+<p><%= link_to 'New product variant', new_product_variant_path %></p>
+<ul>
+  <% @variants.each do |variant| %>
+    <li id='<%= "variant_#{variant.id}" %>'>
+      <%= variant.size %> | <%= link_to 'Show', :variant %>
+      </li>
+  <% end %>
+</ul>

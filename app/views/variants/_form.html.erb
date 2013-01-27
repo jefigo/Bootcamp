@@ -1,0 +1,14 @@
+<% if variant.errors.any? %>
+  <h3>Uppss we have a problem</h3>
+<% end %>
+<%= form_for :variant do |v| %>
+  <%= v.label :size %>
+  <%= v.text_field :zise %>
+  <span class='error'><%= variant.errors[:zise].join(', ') %></span>
+  <br/>
+  <%= v.label :color %>
+  <%= v.text_field :color %>
+  <span class='error'><%= variant.errors[:color].join(', ') %></span>
+  <br/>
+ <%= v.submit 'Save' %>
+<% end %>

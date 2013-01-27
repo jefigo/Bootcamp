@@ -1,0 +1,24 @@
+<% if product.errors.any? %>
+  <h3>Uppss we have a problem</h3>
+<% end %>
+<%= form_for product do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <span class='error'><%= product.errors[:name].join(', ') %></span>
+  <br/>
+  <%= f.label :category_id %>
+  <%= collection_select :product, :category_id, categories, :id, :name %>
+  <span class='error'><%= product.errors[:category_id].join(', ') %></span>
+  <br/>
+  <%= f.label :descritpion %>
+  <%= f.text_area :description, cols: 30, rows: 5 %>
+  <br/>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  <span class='error'><%= product.errors[:price].join(', ') %></span>
+  <br/>
+  <%= f.label :active %>
+  <%= f.check_box :active, checked_value: true, unchecked_value: false %>
+  <br/>
+  <%= f.submit 'Save' %>
+<% end %>
